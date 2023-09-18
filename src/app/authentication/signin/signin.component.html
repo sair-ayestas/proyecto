@@ -1,0 +1,78 @@
+<div class="auth-container">
+  <div class="row auth-main">
+      <div class="col-sm-6 px-0 d-none d-sm-block">
+          <div class="left-img" style="background-image: url(../../../assets/images/pages/InvBlanco.png);">
+          </div>
+      </div>
+      <div class="col-sm-6 auth-form-section">
+          <div class="form-section">
+              <div class="auth-wrapper">
+                  <h2 class="welcome-msg">Bienvenidos</h2>
+                  <p class="auth-signup-text text-muted">¿No tienes una cuenta?
+                      <a class="sign-up-link" routerLink="">Registrate
+                      </a>
+                  </p>
+                  <h2 class="login-title">Iniciar Sesión</h2>
+                  <form class="validate-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                      <!--Usuario-->
+                      <div class="row">
+                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                              <mat-form-field appearance="outline" class="example-full-width">
+                                  <mat-label>Usuario</mat-label>
+                                  <input matInput placeholder="Ingrese su correo Electronico" name="correo" [(ngModel)]="user.correo" required="">
+                                  <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>face</mat-icon>
+                                  <mat-error>
+                                      Usuario requerido
+                                    </mat-error>
+                                </mat-form-field>
+                          </div>
+                      </div>
+                       <!--Contraseña-->
+                      <div class="row">
+                          <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
+                              <mat-form-field appearance="outline" class="example-full-width">
+                                  <mat-label>Contraseña</mat-label>
+                                  <input matInput [type]="hide ? 'password' : 'text'" placeholder="Ingrese su contraseña" name="password" [(ngModel)]="user.password" required="">
+                                  <a href="#" onClick="return false;" matSuffix (click)="hide = !hide"
+                                  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                  <mat-icon class="material-icons-two-tone color-icon m-3" matSuffix>
+                                    {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </a>
+                                <mat-error>
+                                  Contraseña requerida
+                                </mat-error>
+                              </mat-form-field>
+                          </div>
+                           <!--Registro Usuario-->
+                          <div class="d-flex justify-content-between align-items-center mb-5">
+                              <a class="txt1" style="color: #3a8f40 !important;" routerLink="">¿Olvidaste tu Contraseña?</a>
+                          </div>
+                           <!--Mensaje de error-->
+                          <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+                              <!--Boton-->
+                          <button mat-raised-button color="primary"  class="auth-form-btn"  type="submit">
+                              Ingresar
+                          </button>
+                      </div>
+                  </form>
+                   <!--Botones de enlaces a redes sociales de la empresa-->
+                  <h6 class="social-login-title">Contactanos en nuestras redes sociales</h6>
+                  <ul class="list-unstyled social-icon mb-0 mt-3">
+                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded">
+                        <i class="fab fa-whatsapp"></i>
+                      </a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded flex-c-m">
+                        <i class="fab fa-facebook-f"></i>
+                      </a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded">
+                        <i class="fab fa-instagram"></i>
+                      </a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded">
+                        <i class="fab fa-google-plus-g"></i>
+                      </a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>  
+</div>
